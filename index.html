@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOBLESSE RP — Stories. Loyalty. Legacy.</title>
+  <meta name="description" content="NOBLESSE RP — A serious, high-end GTA V roleplay community. Built for dedicated roleplayers who value prestige, loyalty, and legacy." />
+  <meta name="keywords" content="GTA V roleplay, FiveM server, serious RP, Los Santos, NOBLESSE RP" />
+  <meta property="og:title" content="NOBLESSE RP — Stories. Loyalty. Legacy." />
+  <meta property="og:description" content="A serious roleplay experience in Los Santos. Built for dedicated roleplayers." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" id="home-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="30,2 58,16 58,44 30,58 2,44 2,16" stroke="#C8A45A" stroke-width="2" fill="none"/>
+            <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cinzel" font-size="22" font-weight="700" fill="#C8A45A">N</text>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">NOBLESSE</span>
+          <span class="logo-sub">— RP —</span>
+        </div>
+      </a>
+
+      <!-- Center Nav Links -->
+      <nav class="nav-links" id="nav-links">
+        <a href="#home" class="nav-link active" id="nav-home">HOME</a>
+        <a href="#about" class="nav-link" id="nav-about">ABOUT</a>
+        <a href="#features" class="nav-link" id="nav-features">FEATURES</a>
+        <a href="#factions" class="nav-link" id="nav-factions">FACTIONS</a>
+        <a href="#rules" class="nav-link" id="nav-rules">RULES</a>
+        <a href="#store" class="nav-link" id="nav-store">STORE</a>
+      </nav>
+
+      <!-- Right CTA -->
+      <div class="nav-right">
+        <a href="admin.html" class="nav-admin-link" id="nav-admin-link" title="Admin Panel">
+          <i class="fa-solid fa-lock"></i>
+        </a>
+        <a href="#apply" class="btn btn-primary" id="nav-apply-btn">APPLY NOW</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+      <div class="hero-particles" id="hero-particles"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>SERVER ONLINE — JOIN NOW</span>
+      </div>
+
+      <p class="hero-subtitle" id="hero-welcome-text">WELCOME TO</p>
+      <h1 class="hero-title" id="hero-main-title">NOBLESSE RP</h1>
+
+      <div class="hero-divider">
+        <span class="divider-line"></span>
+        <i class="fa-solid fa-crown divider-icon"></i>
+        <span class="divider-line"></span>
+      </div>
+
+      <p class="hero-slogan" id="hero-slogan">STORIES. &nbsp; LOYALTY. &nbsp; LEGACY.</p>
+      <p class="hero-description" id="hero-description">
+        A serious roleplay experience in Los Santos.<br />
+        Built for dedicated roleplayers who value prestige, honor, and legacy.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#apply" class="btn btn-primary btn-lg" id="hero-apply-btn">
+          <i class="fa-solid fa-pen-nib"></i>
+          APPLY NOW
+        </a>
+        <a href="#about" class="btn btn-outline btn-lg" id="hero-learn-btn">
+          <i class="fa-solid fa-circle-play"></i>
+          LEARN MORE
+        </a>
+      </div>
+
+      <div class="hero-tags">
+        <span class="tag"><i class="fa-solid fa-shield-halved"></i> Serious RP</span>
+        <span class="tag"><i class="fa-solid fa-users"></i> Whitelisted</span>
+        <span class="tag"><i class="fa-solid fa-gamepad"></i> FiveM</span>
+        <span class="tag"><i class="fa-solid fa-star"></i> Premium Scripts</span>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+      <span class="scroll-text">SCROLL</span>
+      <div class="scroll-arrow">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS BAR ============ -->
+  <section class="stats-bar" id="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item" id="stat-players">
+        <div class="stat-icon"><i class="fa-regular fa-user"></i></div>
+        <div class="stat-info">
+          <span class="stat-number" data-target="150">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">ACTIVE PLAYERS</span>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" id="stat-factions">
+        <div class="stat-icon"><i class="fa-regular fa-shield"></i></div>
+        <div class="stat-info">
+          <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">UNIQUE FACTIONS</span>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" id="stat-uptime">
+        <div class="stat-icon"><i class="fa-regular fa-clock"></i></div>
+        <div class="stat-info">
+          <span class="stat-number stat-text-val">24/7</span>
+          <span class="stat-label">UPTIME</span>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" id="stat-content">
+        <div class="stat-icon"><i class="fa-regular fa-box"></i></div>
+        <div class="stat-info">
+          <span class="stat-number stat-text-val">100%</span>
+          <span class="stat-label">CUSTOM CONTENT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT SECTION ============ -->
+  <section class="about-section" id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">OUR STORY</p>
+        <h2 class="section-title">What Is <span class="gold-text">Noblesse RP</span>?</h2>
+        <div class="title-underline"><span></span><i class="fa-solid fa-crown"></i><span></span></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead">
+            Noblesse RP is not just a server — it is a community forged on the pillars of <span class="gold-text">prestige</span>, <span class="gold-text">loyalty</span>, and <span class="gold-text">honor</span>.
+          </p>
+          <p class="about-body">
+            We have crafted a deeply immersive roleplay environment in the fictional city of Los Santos, built exclusively for those who take their craft seriously. Our custom scripts, hand-selected staff, and strict application process ensure that every interaction on our server is meaningful, engaging, and cinematic.
+          </p>
+          <p class="about-body">
+            Whether you are building a criminal empire, upholding the law, or navigating the grey areas of city life — your story matters here. Every character has depth. Every decision has consequence.
+          </p>
+          <div class="about-values">
+            <div class="value-chip" id="val-prestige"><i class="fa-solid fa-crown"></i> Prestige</div>
+            <div class="value-chip" id="val-loyalty"><i class="fa-solid fa-handshake"></i> Loyalty</div>
+            <div class="value-chip" id="val-respect"><i class="fa-solid fa-scale-balanced"></i> Respect</div>
+            <div class="value-chip" id="val-honor"><i class="fa-solid fa-star"></i> Honor</div>
+            <div class="value-chip" id="val-integrity"><i class="fa-solid fa-shield-halved"></i> Integrity</div>
+            <div class="value-chip" id="val-legacy"><i class="fa-solid fa-landmark"></i> Legacy</div>
+          </div>
+          <a href="#apply" class="btn btn-primary" id="about-apply-btn">JOIN THE COMMUNITY <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="about-cards">
+          <div class="about-card" id="about-card-1">
+            <div class="about-card-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <h3>Expert Staff Team</h3>
+            <p>A dedicated team of experienced roleplayers running the server 24/7 to ensure the best possible experience.</p>
+          </div>
+          <div class="about-card" id="about-card-2">
+            <div class="about-card-icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Custom Development</h3>
+            <p>Hundreds of custom scripts and assets built in-house to create a unique, immersive world found nowhere else.</p>
+          </div>
+          <div class="about-card" id="about-card-3">
+            <div class="about-card-icon"><i class="fa-solid fa-gavel"></i></div>
+            <h3>Strict Whitelist</h3>
+            <p>An extensive application and interview process ensures only dedicated, quality roleplayers join our city.</p>
+          </div>
+          <div class="about-card" id="about-card-4">
+            <div class="about-card-icon"><i class="fa-solid fa-film"></i></div>
+            <h3>Cinematic Stories</h3>
+            <p>From street-level hustle to corporate power plays — every storyline is crafted for maximum immersion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES SECTION ============ -->
+  <section class="features-section" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">WHAT WE OFFER</p>
+        <h2 class="section-title">Server <span class="gold-text">Features</span></h2>
+        <div class="title-underline"><span></span><i class="fa-solid fa-crown"></i><span></span></div>
+        <p class="section-description">Everything you need for a fully immersive, cinematic roleplay experience.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card" id="feat-economy">
+          <div class="feature-card-header">
+            <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
+            <h3>Advanced Economy</h3>
+          </div>
+          <p>A fully custom, player-driven economy with businesses, banks, property ownership, and underground markets.</p>
+          <div class="feature-tag">In-Game</div>
+        </div>
+
+        <div class="feature-card featured" id="feat-factions">
+          <div class="feature-card-badge">POPULAR</div>
+          <div class="feature-card-header">
+            <div class="feature-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Deep Factions System</h3>
+          </div>
+          <p>20+ unique factions ranging from law enforcement agencies to elite criminal organizations, each with custom hierarchy and lore.</p>
+          <div class="feature-tag">Lore-Rich</div>
+        </div>
+
+        <div class="feature-card" id="feat-jobs">
+          <div class="feature-card-header">
+            <div class="feature-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <h3>50+ Jobs & Careers</h3>
+          </div>
+          <p>From surgeon to street racer, mechanic to real estate mogul — dozens of legal and illegal career paths await.</p>
+          <div class="feature-tag">Careers</div>
+        </div>
+
+        <div class="feature-card" id="feat-vehicles">
+          <div class="feature-card-header">
+            <div class="feature-icon"><i class="fa-solid fa-car-side"></i></div>
+            <h3>Premium Vehicles</h3>
+          </div>
+          <p>Hundreds of custom vehicles including supercars, motorcycles, and emergency vehicles with realistic handling mods.</p>
+          <div class="feature-tag">Custom</div>
+        </div>
+
+        <div class="feature-card" id="feat-housing">
+          <div class="feature-card-header">
+            <div class="feature-icon"><i class="fa-solid fa-house-chimney"></i></div>
+            <h3>Property System</h3>
+          </div>
+          <p>Buy, sell, and rent homes, apartments, and commercial properties across Los Santos with interior customization.</p>
+          <div class="feature-tag">Real Estate</div>
+        </div>
+
+        <div class="feature-card" id="feat-legal">
+          <div class="feature-card-header">
+            <div class="feature-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3>Legal System</h3>
+          </div>
+          <p>A fully functioning court system with judges, lawyers, prosecutors, and a penal code — law is real here.</p>
+          <div class="feature-tag">Immersive</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FACTIONS SECTION ============ -->
+  <section class="factions-section" id="factions">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">CITY ORGANIZATIONS</p>
+        <h2 class="section-title">Featured <span class="gold-text">Factions</span></h2>
+        <div class="title-underline"><span></span><i class="fa-solid fa-crown"></i><span></span></div>
+      </div>
+
+      <div class="factions-grid">
+        <div class="faction-card" id="faction-lspd">
+          <div class="faction-bg faction-law"></div>
+          <div class="faction-content">
+            <div class="faction-icon"><i class="fa-solid fa-shield-badge"></i></div>
+            <span class="faction-type">LAW ENFORCEMENT</span>
+            <h3>Los Santos Police Dept.</h3>
+            <p>Serve and protect the citizens of Los Santos. Uphold the law with honor and integrity.</p>
+            <div class="faction-footer">
+              <span class="faction-members"><i class="fa-solid fa-users"></i> 35 Members</span>
+              <span class="faction-status open">RECRUITING</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="faction-card" id="faction-mafia">
+          <div class="faction-bg faction-crime"></div>
+          <div class="faction-content">
+            <div class="faction-icon"><i class="fa-solid fa-masks-theater"></i></div>
+            <span class="faction-type">CRIMINAL ORGANIZATION</span>
+            <h3>La Famiglia Nera</h3>
+            <p>An elite underground syndicate operating in the shadows of Los Santos high society.</p>
+            <div class="faction-footer">
+              <span class="faction-members"><i class="fa-solid fa-users"></i> 28 Members</span>
+              <span class="faction-status closed">INVITE ONLY</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="faction-card" id="faction-ems">
+          <div class="faction-bg faction-medical"></div>
+          <div class="faction-content">
+            <div class="faction-icon"><i class="fa-solid fa-kit-medical"></i></div>
+            <span class="faction-type">EMERGENCY SERVICES</span>
+            <h3>LSEMS</h3>
+            <p>Dedicated paramedics and doctors saving lives on the streets and in the trauma center.</p>
+            <div class="faction-footer">
+              <span class="faction-members"><i class="fa-solid fa-users"></i> 22 Members</span>
+              <span class="faction-status open">RECRUITING</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="faction-card" id="faction-biker">
+          <div class="faction-bg faction-biker"></div>
+          <div class="faction-content">
+            <div class="faction-icon"><i class="fa-solid fa-motorcycle"></i></div>
+            <span class="faction-type">MOTORCYCLE CLUB</span>
+            <h3>Iron Ravens MC</h3>
+            <p>Brotherhood forged in steel and chrome. Loyalty above everything on the open road.</p>
+            <div class="faction-footer">
+              <span class="faction-members"><i class="fa-solid fa-users"></i> 18 Members</span>
+              <span class="faction-status open">RECRUITING</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="factions-cta">
+        <p>And <span class="gold-text">16+ more factions</span> waiting to be discovered in the city.</p>
+        <a href="#apply" class="btn btn-outline" id="factions-apply-btn">VIEW ALL FACTIONS <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RULES SECTION ============ -->
+  <section class="rules-section" id="rules">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">CODE OF CONDUCT</p>
+        <h2 class="section-title">Server <span class="gold-text">Rules</span></h2>
+        <div class="title-underline"><span></span><i class="fa-solid fa-crown"></i><span></span></div>
+        <p class="section-description">Our rules are the foundation of the Noblesse experience. Respect them, or face the consequences.</p>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-card" id="rule-1">
+          <span class="rule-number">01</span>
+          <div class="rule-body">
+            <h3><i class="fa-solid fa-theater-masks"></i> Always Stay In Character</h3>
+            <p>Maintain your character's perspective at all times during active gameplay. OOC (Out Of Character) communication must use designated channels only.</p>
+          </div>
+        </div>
+        <div class="rule-card" id="rule-2">
+          <span class="rule-number">02</span>
+          <div class="rule-body">
+            <h3><i class="fa-solid fa-heart-pulse"></i> Value Your Life</h3>
+            <p>Your character must act as if their life has value. Reckless disregard for your own safety (known as No Value of Life / NVL) is prohibited.</p>
+          </div>
+        </div>
+        <div class="rule-card" id="rule-3">
+          <span class="rule-number">03</span>
+          <div class="rule-body">
+            <h3><i class="fa-solid fa-handshake-slash"></i> No Metagaming</h3>
+            <p>Using information obtained outside the game (Discord, streams, etc.) to influence in-game decisions is a serious violation and will result in bans.</p>
+          </div>
+        </div>
+        <div class="rule-card" id="rule-4">
+          <span class="rule-number">04</span>
+          <div class="rule-body">
+            <h3><i class="fa-solid fa-ban"></i> No Random Deathmatch</h3>
+            <p>Initiating violence without valid in-character reason (RDM/VDM) is forbidden. Every conflict must have a believable narrative behind it.</p>
+          </div>
+        </div>
+        <div class="rule-card" id="rule-5">
+          <span class="rule-number">05</span>
+          <div class="rule-body">
+            <h3><i class="fa-solid fa-comments"></i> Respect All Players</h3>
+            <p>Harassment, discrimination, or toxic behavior toward any community member, in or out of character, will result in immediate removal.</p>
+          </div>
+        </div>
+        <div class="rule-card" id="rule-6">
+          <span class="rule-number">06</span>
+          <div class="rule-body">
+            <h3><i class="fa-solid fa-scroll"></i> Follow Staff Decisions</h3>
+            <p>Staff decisions are final during active situations. All disputes must be submitted via the official ticket system after the session concludes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORE SECTION ============ -->
+  <section class="store-section" id="store">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">SUPPORT THE SERVER</p>
+        <h2 class="section-title">Premium <span class="gold-text">Store</span></h2>
+        <div class="title-underline"><span></span><i class="fa-solid fa-crown"></i><span></span></div>
+        <p class="section-description">Support Noblesse RP and gain exclusive perks, cosmetics, and privileges.</p>
+      </div>
+
+      <div class="store-grid">
+        <div class="store-card" id="store-basic">
+          <div class="store-tier">CITIZEN</div>
+          <div class="store-price"><span class="currency">€</span>9.99<span class="period">/mo</span></div>
+          <ul class="store-perks">
+            <li><i class="fa-solid fa-check"></i> Priority queue access</li>
+            <li><i class="fa-solid fa-check"></i> Exclusive citizen tag</li>
+            <li><i class="fa-solid fa-check"></i> Custom license plate</li>
+            <li><i class="fa-solid fa-check"></i> 5,000 in-game currency bonus</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> VIP spawn location</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Exclusive cosmetics</li>
+          </ul>
+          <a href="#" class="btn btn-outline store-btn" id="store-basic-btn">SELECT PLAN</a>
+        </div>
+
+        <div class="store-card featured" id="store-noble">
+          <div class="store-popular-badge">MOST POPULAR</div>
+          <div class="store-tier">NOBLE</div>
+          <div class="store-price"><span class="currency">€</span>19.99<span class="period">/mo</span></div>
+          <ul class="store-perks">
+            <li><i class="fa-solid fa-check"></i> All Citizen perks</li>
+            <li><i class="fa-solid fa-check"></i> VIP spawn location</li>
+            <li><i class="fa-solid fa-check"></i> Exclusive Noble title</li>
+            <li><i class="fa-solid fa-check"></i> 15,000 in-game currency bonus</li>
+            <li><i class="fa-solid fa-check"></i> Exclusive vehicle wraps</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Staff interaction priority</li>
+          </ul>
+          <a href="#" class="btn btn-primary store-btn" id="store-noble-btn">SELECT PLAN</a>
+        </div>
+
+        <div class="store-card" id="store-elite">
+          <div class="store-tier">NOBLESSE ELITE</div>
+          <div class="store-price"><span class="currency">€</span>39.99<span class="period">/mo</span></div>
+          <ul class="store-perks">
+            <li><i class="fa-solid fa-check"></i> All Noble perks</li>
+            <li><i class="fa-solid fa-check"></i> Staff interaction priority</li>
+            <li><i class="fa-solid fa-check"></i> Custom character accessories</li>
+            <li><i class="fa-solid fa-check"></i> 40,000 in-game currency bonus</li>
+            <li><i class="fa-solid fa-check"></i> Exclusive Elite Discord role</li>
+            <li><i class="fa-solid fa-check"></i> Monthly supporter recognition</li>
+          </ul>
+          <a href="#" class="btn btn-outline store-btn" id="store-elite-btn">SELECT PLAN</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPLY SECTION ============ -->
+  <section class="apply-section" id="apply">
+    <div class="apply-bg-overlay"></div>
+    <div class="section-container apply-content">
+      <div class="apply-icon"><i class="fa-solid fa-crown"></i></div>
+      <p class="section-eyebrow">BEGIN YOUR JOURNEY</p>
+      <h2 class="apply-title">Ready To Join <span class="gold-text">Noblesse RP</span>?</h2>
+      <p class="apply-description">
+        Submit your application today and take the first step into the most prestigious roleplay community in Los Santos.
+        Our team reviews every application personally — quality is our standard.
+      </p>
+      <div class="apply-steps">
+        <div class="apply-step" id="step-1">
+          <span class="step-num">1</span>
+          <span class="step-label">Submit Application</span>
+        </div>
+        <div class="apply-step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="apply-step" id="step-2">
+          <span class="step-num">2</span>
+          <span class="step-label">Interview Process</span>
+        </div>
+        <div class="apply-step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="apply-step" id="step-3">
+          <span class="step-num">3</span>
+          <span class="step-label">Character Creation</span>
+        </div>
+        <div class="apply-step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="apply-step" id="step-4">
+          <span class="step-num">4</span>
+          <span class="step-label">Enter Los Santos</span>
+        </div>
+      </div>
+      <div class="apply-buttons">
+        <a href="#" class="btn btn-primary btn-xl" id="apply-main-btn">
+          <i class="fa-solid fa-pen-nib"></i> APPLY NOW
+        </a>
+        <a href="#" class="btn btn-outline btn-xl" id="apply-discord-btn">
+          <i class="fa-brands fa-discord"></i> JOIN DISCORD
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="50">
+              <polygon points="30,2 58,16 58,44 30,58 2,44 2,16" stroke="#C8A45A" stroke-width="2" fill="none"/>
+              <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cinzel" font-size="22" font-weight="700" fill="#C8A45A">N</text>
+            </svg>
+            <div>
+              <span class="footer-logo-main">NOBLESSE RP</span>
+              <span class="footer-logo-sub">Stories. Loyalty. Legacy.</span>
+            </div>
+          </div>
+          <p class="footer-tagline">The most prestigious GTA V roleplay community in Los Santos. Where every story matters and every roleplayer is held to the highest standard.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" id="social-discord" title="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" class="social-link" id="social-twitter" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-link" id="social-youtube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-link" id="social-tiktok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#features">Features</a>
+          <a href="#factions">Factions</a>
+          <a href="#rules">Rules</a>
+          <a href="#store">Store</a>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Community</h4>
+          <a href="#">Join Discord</a>
+          <a href="#">Apply Now</a>
+          <a href="#">Staff Team</a>
+          <a href="#">Events Calendar</a>
+          <a href="#">Hall of Fame</a>
+          <a href="#">Patch Notes</a>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Support</h4>
+          <a href="#">Submit a Ticket</a>
+          <a href="#">Ban Appeals</a>
+          <a href="#">Report a Player</a>
+          <a href="#">Donation Policy</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+
+        <div class="footer-server-info">
+          <h4>Server Status</h4>
+          <div class="server-status-card">
+            <div class="status-row">
+              <span class="status-indicator online"></span>
+              <span>Main Server</span>
+              <span class="status-count">147/200</span>
+            </div>
+            <div class="status-row">
+              <span class="status-indicator online"></span>
+              <span>Dev Server</span>
+              <span class="status-count">12/50</span>
+            </div>
+            <div class="status-bar-wrap">
+              <div class="status-bar-fill" style="width:73%"></div>
+            </div>
+            <p class="status-note">73% capacity · Low queue</p>
+          </div>
+          <div class="connect-box">
+            <span class="connect-label">CONNECT VIA FIVEM</span>
+            <code class="connect-code">cfx.re/join/noblesse</code>
+            <button class="copy-btn" id="copy-connect-btn" onclick="copyConnect()"><i class="fa-regular fa-copy"></i> COPY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-container footer-bottom-inner">
+        <p>&copy; 2025 Noblesse RP. All rights reserved. Not affiliated with Rockstar Games.</p>
+        <p class="footer-credits">Crafted with <i class="fa-solid fa-heart" style="color:#C8A45A"></i> by the Noblesse Dev Team</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="main.js"></script>
+</body>
+</html>

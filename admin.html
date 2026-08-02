@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOBLESSE RP — Admin Panel</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ====== LOGIN SCREEN ====== -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-card" id="login-card">
+      <div class="login-logo">
+        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="56">
+          <polygon points="30,2 58,16 58,44 30,58 2,44 2,16" stroke="#C8A45A" stroke-width="2" fill="none"/>
+          <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cinzel" font-size="22" font-weight="700" fill="#C8A45A">N</text>
+        </svg>
+        <div>
+          <span class="login-title">NOBLESSE RP</span>
+          <span class="login-sub">Admin Panel</span>
+        </div>
+      </div>
+      <p class="login-desc">Restricted access. Authorized staff only.</p>
+      <form class="login-form" id="login-form">
+        <div class="form-group">
+          <label for="admin-username"><i class="fa-regular fa-user"></i> Username</label>
+          <input type="text" id="admin-username" placeholder="Enter your username" autocomplete="username" />
+        </div>
+        <div class="form-group">
+          <label for="admin-password"><i class="fa-solid fa-lock"></i> Password</label>
+          <div class="pass-wrap">
+            <input type="password" id="admin-password" placeholder="Enter your password" autocomplete="current-password" />
+            <button type="button" class="toggle-pass" id="toggle-pass"><i class="fa-regular fa-eye"></i></button>
+          </div>
+        </div>
+        <p class="login-error" id="login-error"></p>
+        <button type="submit" class="btn-login" id="login-submit-btn">
+          <i class="fa-solid fa-right-to-bracket"></i> SIGN IN
+        </button>
+      </form>
+      <a href="index.html" class="login-back"><i class="fa-solid fa-arrow-left"></i> Back to Homepage</a>
+    </div>
+  </div>
+
+  <!-- ====== ADMIN PANEL ====== -->
+  <div class="admin-panel" id="admin-panel">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="36">
+            <polygon points="30,2 58,16 58,44 30,58 2,44 2,16" stroke="#C8A45A" stroke-width="2" fill="none"/>
+            <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Cinzel" font-size="20" font-weight="700" fill="#C8A45A">N</text>
+          </svg>
+          <div>
+            <span class="sidebar-logo-name">NOBLESSE</span>
+            <span class="sidebar-logo-sub">Admin Panel</span>
+          </div>
+        </div>
+        <button class="sidebar-toggle" id="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">MAIN</div>
+        <a href="#" class="sidebar-link active" data-page="dashboard" id="sidebar-dashboard">
+          <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="players" id="sidebar-players">
+          <i class="fa-solid fa-users"></i><span>Players</span>
+          <span class="badge">147</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="applications" id="sidebar-apps">
+          <i class="fa-solid fa-file-pen"></i><span>Applications</span>
+          <span class="badge badge-gold">12</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="factions" id="sidebar-factions">
+          <i class="fa-solid fa-people-group"></i><span>Factions</span>
+        </a>
+
+        <div class="nav-section-label">MODERATION</div>
+        <a href="#" class="sidebar-link" data-page="bans" id="sidebar-bans">
+          <i class="fa-solid fa-ban"></i><span>Bans & Warnings</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="reports" id="sidebar-reports">
+          <i class="fa-solid fa-flag"></i><span>Reports</span>
+          <span class="badge badge-red">5</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="tickets" id="sidebar-tickets">
+          <i class="fa-solid fa-ticket"></i><span>Tickets</span>
+        </a>
+
+        <div class="nav-section-label">CONTENT</div>
+        <a href="#" class="sidebar-link" data-page="announcements" id="sidebar-announcements">
+          <i class="fa-solid fa-bullhorn"></i><span>Announcements</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="store" id="sidebar-store">
+          <i class="fa-solid fa-bag-shopping"></i><span>Store</span>
+        </a>
+        <a href="#" class="sidebar-link" data-page="settings" id="sidebar-settings">
+          <i class="fa-solid fa-gear"></i><span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="admin-profile">
+          <div class="admin-avatar">A</div>
+          <div class="admin-info">
+            <span class="admin-name">Admin</span>
+            <span class="admin-role">Super Admin</span>
+          </div>
+        </div>
+        <button class="logout-btn" id="logout-btn" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main" id="admin-main">
+
+      <!-- Top Bar -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="topbar-menu-btn" id="topbar-menu-btn"><i class="fa-solid fa-bars"></i></button>
+          <div class="breadcrumb">
+            <span class="breadcrumb-home">Admin</span>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span class="breadcrumb-current" id="breadcrumb-current">Dashboard</span>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="server-status-pill">
+            <span class="status-dot online"></span>
+            <span>147 / 200 Online</span>
+          </div>
+          <button class="topbar-icon-btn" id="notif-btn" title="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-badge">3</span>
+          </button>
+          <a href="index.html" class="topbar-icon-btn" title="View Site">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </header>
+
+      <!-- Pages Container -->
+      <div class="pages-container">
+
+        <!-- ====== DASHBOARD PAGE ====== -->
+        <div class="page active" id="page-dashboard">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Dashboard</h1>
+              <p class="page-subtitle">Welcome back, Admin. Here's what's happening in Los Santos today.</p>
+            </div>
+            <div class="page-actions">
+              <button class="btn-action" id="refresh-dashboard-btn"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+            </div>
+          </div>
+
+          <!-- KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card" id="kpi-players">
+              <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
+              <div class="kpi-body">
+                <span class="kpi-label">ACTIVE PLAYERS</span>
+                <span class="kpi-value">147</span>
+                <span class="kpi-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +12% today</span>
+              </div>
+            </div>
+            <div class="kpi-card" id="kpi-apps">
+              <div class="kpi-icon gold"><i class="fa-solid fa-file-pen"></i></div>
+              <div class="kpi-body">
+                <span class="kpi-label">PENDING APPS</span>
+                <span class="kpi-value">12</span>
+                <span class="kpi-trend neutral"><i class="fa-solid fa-minus"></i> 3 reviewed today</span>
+              </div>
+            </div>
+            <div class="kpi-card" id="kpi-reports">
+              <div class="kpi-icon red"><i class="fa-solid fa-flag"></i></div>
+              <div class="kpi-body">
+                <span class="kpi-label">OPEN REPORTS</span>
+                <span class="kpi-value">5</span>
+                <span class="kpi-trend down"><i class="fa-solid fa-arrow-trend-down"></i> -2 from yesterday</span>
+              </div>
+            </div>
+            <div class="kpi-card" id="kpi-revenue">
+              <div class="kpi-icon green"><i class="fa-solid fa-euro-sign"></i></div>
+              <div class="kpi-body">
+                <span class="kpi-label">MONTHLY REVENUE</span>
+                <span class="kpi-value">€1,240</span>
+                <span class="kpi-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +18% this month</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="charts-row">
+            <div class="chart-card wide" id="chart-players-card">
+              <div class="chart-header">
+                <h3>Player Activity — Last 7 Days</h3>
+                <div class="chart-legend">
+                  <span class="legend-dot gold"></span><span>Online Players</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrap">
+                <canvas id="playersChart"></canvas>
+              </div>
+            </div>
+            <div class="chart-card" id="chart-revenue-card">
+              <div class="chart-header">
+                <h3>Revenue Split</h3>
+              </div>
+              <div class="chart-canvas-wrap donut-wrap">
+                <canvas id="revenueChart"></canvas>
+                <div class="donut-center">
+                  <span class="donut-val">€1,240</span>
+                  <span class="donut-label">Total</span>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <span><span class="legend-dot" style="background:#C8A45A"></span>Noble — €640</span>
+                <span><span class="legend-dot" style="background:#E3C98A"></span>Elite — €440</span>
+                <span><span class="legend-dot" style="background:#7D8693"></span>Citizen — €160</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity + Quick Actions Row -->
+          <div class="bottom-row">
+            <!-- Recent Activity -->
+            <div class="activity-card" id="activity-feed">
+              <div class="card-header-row">
+                <h3>Recent Activity</h3>
+                <button class="view-all-btn">View All</button>
+              </div>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon green"><i class="fa-solid fa-user-plus"></i></div>
+                  <div class="activity-info">
+                    <span class="activity-title">New player <strong>John_Mercer</strong> joined the server</span>
+                    <span class="activity-time">2 min ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon gold"><i class="fa-solid fa-file-pen"></i></div>
+                  <div class="activity-info">
+                    <span class="activity-title">Application from <strong>Maria_Santos</strong> submitted</span>
+                    <span class="activity-time">14 min ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon red"><i class="fa-solid fa-ban"></i></div>
+                  <div class="activity-info">
+                    <span class="activity-title"><strong>NPC_Griefer99</strong> was banned for 7 days</span>
+                    <span class="activity-time">32 min ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon blue"><i class="fa-solid fa-ticket"></i></div>
+                  <div class="activity-info">
+                    <span class="activity-title">Support ticket #0042 was resolved by <strong>Mod_Alex</strong></span>
+                    <span class="activity-time">1 hr ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon green"><i class="fa-solid fa-euro-sign"></i></div>
+                  <div class="activity-info">
+                    <span class="activity-title"><strong>VIP_Carlos</strong> purchased Noble tier donation</span>
+                    <span class="activity-time">2 hr ago</span>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon gold"><i class="fa-solid fa-people-group"></i></div>
+                  <div class="activity-info">
+                    <span class="activity-title">Faction <strong>Iron Ravens MC</strong> promoted a new sergeant</span>
+                    <span class="activity-time">3 hr ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions-card" id="quick-actions">
+              <div class="card-header-row">
+                <h3>Quick Actions</h3>
+              </div>
+              <div class="quick-grid">
+                <button class="quick-btn" id="qa-ban-btn" onclick="switchPage('bans')">
+                  <i class="fa-solid fa-ban"></i>
+                  <span>Ban Player</span>
+                </button>
+                <button class="quick-btn" id="qa-announce-btn" onclick="switchPage('announcements')">
+                  <i class="fa-solid fa-bullhorn"></i>
+                  <span>Announce</span>
+                </button>
+                <button class="quick-btn" id="qa-apps-btn" onclick="switchPage('applications')">
+                  <i class="fa-solid fa-file-pen"></i>
+                  <span>Review Apps</span>
+                </button>
+                <button class="quick-btn" id="qa-reports-btn" onclick="switchPage('reports')">
+                  <i class="fa-solid fa-flag"></i>
+                  <span>Reports</span>
+                </button>
+                <button class="quick-btn" id="qa-restart-btn">
+                  <i class="fa-solid fa-rotate-right"></i>
+                  <span>Restart Server</span>
+                </button>
+                <button class="quick-btn" id="qa-store-btn" onclick="switchPage('store')">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  <span>Store</span>
+                </button>
+              </div>
+
+              <!-- Top Players -->
+              <div class="card-header-row" style="margin-top:24px;">
+                <h3>Top Players Today</h3>
+              </div>
+              <div class="top-players-list">
+                <div class="top-player">
+                  <span class="rank gold">1</span>
+                  <div class="player-avatar">V</div>
+                  <div class="player-info"><span class="player-name">Victor_Nzinga</span><span class="player-faction">La Famiglia</span></div>
+                  <span class="player-hours">18h</span>
+                </div>
+                <div class="top-player">
+                  <span class="rank">2</span>
+                  <div class="player-avatar">S</div>
+                  <div class="player-info"><span class="player-name">Sofia_Reyes</span><span class="player-faction">LSPD</span></div>
+                  <span class="player-hours">16h</span>
+                </div>
+                <div class="top-player">
+                  <span class="rank">3</span>
+                  <div class="player-avatar">M</div>
+                  <div class="player-info"><span class="player-name">Marco_Bianchi</span><span class="player-faction">Iron Ravens</span></div>
+                  <span class="player-hours">15h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====== PLAYERS PAGE ====== -->
+        <div class="page" id="page-players">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Player Management</h1>
+              <p class="page-subtitle">Manage all registered community members.</p>
+            </div>
+            <div class="page-actions">
+              <div class="search-input-wrap">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Search players..." id="player-search" class="search-input" />
+              </div>
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="data-table" id="players-table">
+              <thead>
+                <tr>
+                  <th>Player</th>
+                  <th>Discord ID</th>
+                  <th>Faction</th>
+                  <th>Status</th>
+                  <th>Playtime</th>
+                  <th>Joined</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="players-tbody">
+                <!-- Filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ====== APPLICATIONS PAGE ====== -->
+        <div class="page" id="page-applications">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Applications</h1>
+              <p class="page-subtitle">Review pending whitelist applications from prospective players.</p>
+            </div>
+          </div>
+          <div class="apps-grid" id="apps-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- ====== BANS PAGE ====== -->
+        <div class="page" id="page-bans">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Bans & Warnings</h1>
+              <p class="page-subtitle">Track and manage player disciplinary actions.</p>
+            </div>
+            <div class="page-actions">
+              <button class="btn-action btn-danger" id="add-ban-btn" onclick="openBanModal()">
+                <i class="fa-solid fa-ban"></i> Add Ban
+              </button>
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="data-table" id="bans-table">
+              <thead>
+                <tr>
+                  <th>Player</th>
+                  <th>Type</th>
+                  <th>Reason</th>
+                  <th>Issued By</th>
+                  <th>Duration</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bans-tbody">
+                <!-- Filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ====== ANNOUNCEMENTS PAGE ====== -->
+        <div class="page" id="page-announcements">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Announcements</h1>
+              <p class="page-subtitle">Publish messages to the community homepage and Discord.</p>
+            </div>
+          </div>
+          <div class="announce-layout">
+            <div class="announce-form-card">
+              <h3>New Announcement</h3>
+              <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="announce-title" placeholder="Announcement title..." class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea id="announce-body" placeholder="Write your announcement here..." class="form-textarea" rows="5"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Category</label>
+                  <select class="form-input" id="announce-category">
+                    <option>Server Update</option>
+                    <option>Event</option>
+                    <option>Maintenance</option>
+                    <option>Community</option>
+                    <option>Rules Update</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Send To</label>
+                  <select class="form-input" id="announce-dest">
+                    <option>Homepage Only</option>
+                    <option>Discord Only</option>
+                    <option>Both</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn-action" id="publish-btn" onclick="publishAnnouncement()">
+                  <i class="fa-solid fa-paper-plane"></i> Publish
+                </button>
+                <button class="btn-action btn-ghost" id="preview-btn">
+                  <i class="fa-regular fa-eye"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div class="announce-history-card">
+              <h3>Recent Announcements</h3>
+              <div class="announce-list" id="announce-list">
+                <!-- Filled by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====== SETTINGS PAGE ====== -->
+        <div class="page" id="page-settings">
+          <div class="page-header">
+            <div>
+              <h1 class="page-title">Settings</h1>
+              <p class="page-subtitle">Configure server and community settings.</p>
+            </div>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-card">
+              <h3><i class="fa-solid fa-server"></i> Server Configuration</h3>
+              <div class="setting-item">
+                <div><span class="setting-name">Max Players</span><span class="setting-desc">Maximum concurrent players</span></div>
+                <input type="number" value="200" class="setting-input" id="max-players-input" />
+              </div>
+              <div class="setting-item">
+                <div><span class="setting-name">Server Name</span><span class="setting-desc">Display name in FiveM</span></div>
+                <input type="text" value="NOBLESSE RP" class="setting-input" id="server-name-input" />
+              </div>
+              <div class="setting-item">
+                <div><span class="setting-name">Whitelist Mode</span><span class="setting-desc">Restrict to approved players</span></div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked id="whitelist-toggle" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div><span class="setting-name">Maintenance Mode</span><span class="setting-desc">Temporarily lock the server</span></div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="maintenance-toggle" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+            <div class="settings-card">
+              <h3><i class="fa-solid fa-palette"></i> Website Settings</h3>
+              <div class="setting-item">
+                <div><span class="setting-name">Apply Applications</span><span class="setting-desc">Allow new applications</span></div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked id="apps-open-toggle" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div><span class="setting-name">Store Active</span><span class="setting-desc">Enable donation store</span></div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked id="store-active-toggle" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div><span class="setting-name">Live Player Count</span><span class="setting-desc">Show player count on homepage</span></div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked id="show-count-toggle" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+            <div class="settings-card">
+              <h3><i class="fa-solid fa-shield-halved"></i> Security</h3>
+              <div class="setting-item">
+                <div><span class="setting-name">2FA Required</span><span class="setting-desc">For all admin accounts</span></div>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked id="2fa-toggle" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div><span class="setting-name">Change Password</span><span class="setting-desc">Update admin credentials</span></div>
+                <button class="btn-action" id="change-pass-btn"><i class="fa-solid fa-key"></i> Change</button>
+              </div>
+              <div class="setting-item">
+                <div><span class="setting-name">Audit Log</span><span class="setting-desc">Download full action log</span></div>
+                <button class="btn-action btn-ghost" id="download-log-btn"><i class="fa-solid fa-download"></i> Export</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder pages for other sections -->
+        <div class="page" id="page-factions"><div class="page-placeholder"><i class="fa-solid fa-people-group"></i><h2>Factions Manager</h2><p>Manage faction rosters, ranks, and lore here.</p></div></div>
+        <div class="page" id="page-reports"><div class="page-placeholder"><i class="fa-solid fa-flag"></i><h2>Player Reports</h2><p>All open player reports will appear here.</p></div></div>
+        <div class="page" id="page-tickets"><div class="page-placeholder"><i class="fa-solid fa-ticket"></i><h2>Support Tickets</h2><p>Manage and respond to community support tickets.</p></div></div>
+        <div class="page" id="page-store"><div class="page-placeholder"><i class="fa-solid fa-bag-shopping"></i><h2>Store Management</h2><p>Manage donation tiers, perks, and transactions here.</p></div></div>
+
+      </div><!-- end pages-container -->
+    </div><!-- end admin-main -->
+  </div><!-- end admin-panel -->
+
+  <!-- ====== BAN MODAL ====== -->
+  <div class="modal-overlay" id="ban-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-ban"></i> Issue Ban / Warning</h3>
+        <button class="modal-close" onclick="closeBanModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="form-group">
+        <label>Player Name</label>
+        <input type="text" id="ban-player-name" placeholder="e.g. John_Mercer" class="form-input" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Action Type</label>
+          <select class="form-input" id="ban-type-select">
+            <option>Permanent Ban</option>
+            <option>Temporary Ban</option>
+            <option>Warning</option>
+            <option>Kick</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Duration (if temp)</label>
+          <input type="text" id="ban-duration" placeholder="e.g. 7 days" class="form-input" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Reason</label>
+        <textarea id="ban-reason" placeholder="Reason for the action..." class="form-textarea" rows="3"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn-action btn-danger" id="confirm-ban-btn" onclick="confirmBan()"><i class="fa-solid fa-ban"></i> Confirm</button>
+        <button class="btn-action btn-ghost" id="cancel-ban-btn" onclick="closeBanModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
