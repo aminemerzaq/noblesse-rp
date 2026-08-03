@@ -32,6 +32,20 @@
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Logo image sizing */
+.logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  border-radius: 6px;
+}
+.nav-logo:hover .logo-img {
+  filter: drop-shadow(0 0 10px rgba(200,164,90,0.6));
+  transform: scale(1.05);
+}
+
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
