@@ -102,14 +102,29 @@
         <a href="#" class="sidebar-link" data-page="settings" id="sidebar-settings">
           <i class="fa-solid fa-gear"></i><span>Settings</span>
         </a>
+
+        <!-- SUPER ADMIN SECTION -->
+        <div class="nav-section-label superadmin-only" id="sa-section-label" style="display:none">SUPER ADMIN</div>
+        <a href="#" class="sidebar-link superadmin-only" data-page="staff" id="sidebar-staff" style="display:none">
+          <i class="fa-solid fa-user-shield"></i><span>Staff Manager</span>
+        </a>
+        <a href="#" class="sidebar-link superadmin-only" data-page="faction-crud" id="sidebar-faction-crud" style="display:none">
+          <i class="fa-solid fa-sitemap"></i><span>Faction CRUD</span>
+        </a>
+        <a href="#" class="sidebar-link superadmin-only" data-page="store-crud" id="sidebar-store-crud" style="display:none">
+          <i class="fa-solid fa-tags"></i><span>Store Manager</span>
+        </a>
+        <a href="#" class="sidebar-link superadmin-only" data-page="player-crud" id="sidebar-player-crud" style="display:none">
+          <i class="fa-solid fa-user-pen"></i><span>Player CRUD</span>
+        </a>
       </nav>
 
       <div class="sidebar-footer">
         <div class="admin-profile">
-          <div class="admin-avatar">A</div>
+          <div class="admin-avatar" id="sidebar-avatar">A</div>
           <div class="admin-info">
-            <span class="admin-name">Admin</span>
-            <span class="admin-role">Super Admin</span>
+            <span class="admin-name" id="sidebar-username">Admin</span>
+            <span class="admin-role" id="sidebar-role">Administrator</span>
           </div>
         </div>
         <button class="logout-btn" id="logout-btn" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
@@ -557,13 +572,69 @@
           </div>
         </div>
 
-        <!-- Placeholder pages for other sections -->
-        <div class="page" id="page-factions"><div class="page-placeholder"><i class="fa-solid fa-people-group"></i><h2>Factions Manager</h2><p>Manage faction rosters, ranks, and lore here.</p></div></div>
+        <!-- Placeholder pages -->
+        <div class="page" id="page-factions"><div class="page-placeholder"><i class="fa-solid fa-people-group"></i><h2>Factions Overview</h2><p>Use <strong style="color:var(--gold)">Faction CRUD</strong> in the Super Admin section to manage factions.</p></div></div>
         <div class="page" id="page-reports"><div class="page-placeholder"><i class="fa-solid fa-flag"></i><h2>Player Reports</h2><p>All open player reports will appear here.</p></div></div>
         <div class="page" id="page-tickets"><div class="page-placeholder"><i class="fa-solid fa-ticket"></i><h2>Support Tickets</h2><p>Manage and respond to community support tickets.</p></div></div>
-        <div class="page" id="page-store"><div class="page-placeholder"><i class="fa-solid fa-bag-shopping"></i><h2>Store Management</h2><p>Manage donation tiers, perks, and transactions here.</p></div></div>
+        <div class="page" id="page-store"><div class="page-placeholder"><i class="fa-solid fa-bag-shopping"></i><h2>Store Overview</h2><p>Use <strong style="color:var(--gold)">Store Manager</strong> in the Super Admin section to manage tiers.</p></div></div>
+
+        <!-- ====== STAFF MANAGER PAGE ====== -->
+        <div class="page" id="page-staff">
+          <div class="page-header">
+            <div><h1 class="page-title">Staff Manager</h1><p class="page-subtitle">Create, edit, and delete admin panel accounts. Super Admin access only.</p></div>
+            <div class="page-actions">
+              <button class="btn-action" id="add-staff-btn" onclick="openCrud('staff','create')"><i class="fa-solid fa-plus"></i> Add Staff</button>
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="data-table"><thead><tr><th>Staff Member</th><th>Username</th><th>Role</th><th>Status</th><th>Added</th><th>Actions</th></tr></thead>
+            <tbody id="staff-tbody"></tbody></table>
+          </div>
+        </div>
+
+        <!-- ====== FACTION CRUD PAGE ====== -->
+        <div class="page" id="page-faction-crud">
+          <div class="page-header">
+            <div><h1 class="page-title">Faction Manager</h1><p class="page-subtitle">Full CRUD management for all city factions.</p></div>
+            <div class="page-actions">
+              <button class="btn-action" id="add-faction-btn" onclick="openCrud('faction','create')"><i class="fa-solid fa-plus"></i> Add Faction</button>
+            </div>
+          </div>
+          <div class="kpi-grid" id="faction-kpi-row" style="margin-bottom:20px"></div>
+          <div class="table-card">
+            <table class="data-table"><thead><tr><th>Faction</th><th>Type</th><th>Status</th><th>Members</th><th>Capacity</th><th>Leader</th><th>Actions</th></tr></thead>
+            <tbody id="faction-tbody"></tbody></table>
+          </div>
+        </div>
+
+        <!-- ====== STORE CRUD PAGE ====== -->
+        <div class="page" id="page-store-crud">
+          <div class="page-header">
+            <div><h1 class="page-title">Store Manager</h1><p class="page-subtitle">Manage donation tiers, prices, and perks.</p></div>
+            <div class="page-actions">
+              <button class="btn-action" id="add-tier-btn" onclick="openCrud('tier','create')"><i class="fa-solid fa-plus"></i> Add Tier</button>
+            </div>
+          </div>
+          <div class="store-crud-grid" id="store-crud-grid"></div>
+        </div>
+
+        <!-- ====== PLAYER CRUD PAGE ====== -->
+        <div class="page" id="page-player-crud">
+          <div class="page-header">
+            <div><h1 class="page-title">Player CRUD</h1><p class="page-subtitle">Full create, edit, and delete control over player records.</p></div>
+            <div class="page-actions">
+              <div class="search-input-wrap"><i class="fa-solid fa-search"></i><input type="text" placeholder="Search players..." class="search-input" id="crud-player-search" /></div>
+              <button class="btn-action" id="add-player-btn" onclick="openCrud('player','create')"><i class="fa-solid fa-plus"></i> Add Player</button>
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="data-table"><thead><tr><th>Player</th><th>Discord ID</th><th>Faction</th><th>Status</th><th>Playtime</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody id="crud-players-tbody"></tbody></table>
+          </div>
+        </div>
 
       </div><!-- end pages-container -->
+
     </div><!-- end admin-main -->
   </div><!-- end admin-panel -->
 
@@ -604,6 +675,71 @@
     </div>
   </div>
 
+  <!-- ====== UNIVERSAL CRUD MODAL ====== -->
+  <div class="modal-overlay" id="crud-modal">
+    <div class="modal-card" style="max-width:560px;gap:0;padding:0;overflow:hidden;">
+      <div class="modal-header" style="padding:22px 28px;border-bottom:1px solid var(--border);">
+        <h3 id="crud-modal-title" style="font-family:'Cinzel',serif;font-size:1rem;color:var(--ivory);display:flex;align-items:center;gap:8px;"></h3>
+        <button class="modal-close" onclick="closeCrudModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="crud-modal-body" style="padding:24px 28px;display:flex;flex-direction:column;gap:16px;max-height:70vh;overflow-y:auto;"></div>
+      <div style="padding:18px 28px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end;background:rgba(0,0,0,0.1);">
+        <button class="btn-action btn-ghost" onclick="closeCrudModal()" id="crud-cancel-btn">Cancel</button>
+        <button class="btn-action" id="crud-save-btn" onclick="saveCrud()"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== DELETE CONFIRM MODAL ====== -->
+  <div class="modal-overlay" id="delete-modal">
+    <div class="modal-card" style="max-width:420px;text-align:center;">
+      <div style="font-size:2.5rem;color:var(--red);margin-bottom:12px;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h3 style="font-family:'Cinzel',serif;font-size:1.1rem;color:var(--ivory);margin-bottom:8px;">Confirm Delete</h3>
+      <p id="delete-modal-msg" style="font-size:0.88rem;color:var(--slate);line-height:1.6;margin-bottom:24px;"></p>
+      <div style="display:flex;gap:12px;justify-content:center;">
+        <button class="btn-action btn-ghost" onclick="closeDeleteModal()">Cancel</button>
+        <button class="btn-action btn-danger" id="delete-confirm-btn"><i class="fa-solid fa-trash"></i> Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .store-crud-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+    .store-tier-card { background:var(--bg-2); border:1px solid var(--border); border-radius:10px; padding:24px; position:relative; transition:all 0.25s; }
+    .store-tier-card:hover { border-color:rgba(200,164,90,0.35); transform:translateY(-3px); }
+    .store-tier-badge { position:absolute;top:12px;right:12px;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;background:rgba(200,164,90,0.12);border:1px solid var(--border);color:var(--gold);padding:3px 8px;border-radius:3px; }
+    .store-tier-name { font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.25em;color:var(--gold);margin-bottom:6px; }
+    .store-tier-price { font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--ivory);line-height:1;margin-bottom:16px; }
+    .store-tier-price sup { font-size:1rem;color:var(--gold); }
+    .store-tier-price sub { font-size:0.9rem;color:var(--slate); }
+    .store-tier-perks { display:flex;flex-direction:column;gap:8px;margin-bottom:18px; }
+    .store-tier-perks li { display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--slate); }
+    .store-tier-perks li i { color:var(--gold);font-size:0.7rem;flex-shrink:0; }
+    .store-tier-actions { display:flex;gap:8px; }
+    .role-badge { display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;padding:3px 9px;border-radius:3px; }
+    .role-superadmin { background:rgba(200,164,90,0.15);color:var(--gold);border:1px solid var(--border); }
+    .role-admin      { background:rgba(96,165,250,0.12);color:#60a5fa;border:1px solid rgba(96,165,250,0.2); }
+    .role-moderator  { background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.2); }
+    .role-support    { background:rgba(125,134,147,0.12);color:var(--slate);border:1px solid var(--border-2); }
+    .faction-type-badge { font-size:0.65rem;font-weight:700;letter-spacing:0.12em;padding:3px 8px;border-radius:3px;background:rgba(200,164,90,0.1);color:var(--gold-light);border:1px solid var(--border); }
+    .crud-field { display:flex;flex-direction:column;gap:6px; }
+    .crud-field label { font-size:0.7rem;font-weight:700;letter-spacing:0.12em;color:var(--slate);text-transform:uppercase; }
+    .crud-field input,.crud-field select,.crud-field textarea {
+      background:var(--bg);border:1px solid var(--border-2);border-radius:6px;
+      padding:10px 13px;font-size:0.88rem;color:var(--ivory);outline:none;
+      transition:all 0.2s;font-family:'Inter',sans-serif;width:100%;
+    }
+    .crud-field input:focus,.crud-field select:focus,.crud-field textarea:focus { border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,164,90,0.1); }
+    .crud-field textarea { resize:vertical;min-height:80px; }
+    .crud-field-row { display:grid;grid-template-columns:1fr 1fr;gap:14px; }
+    .perks-list { display:flex;flex-direction:column;gap:6px;margin-top:6px; }
+    .perk-row { display:flex;align-items:center;gap:8px; }
+    .perk-row input { flex:1; }
+    .perk-remove { color:var(--red);font-size:0.85rem;cursor:pointer;padding:4px;flex-shrink:0; }
+    .add-perk-btn { display:flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:600;color:var(--gold);background:rgba(200,164,90,0.08);border:1px dashed rgba(200,164,90,0.3);border-radius:6px;padding:8px;cursor:pointer;transition:all 0.2s; }
+    .add-perk-btn:hover { background:rgba(200,164,90,0.15); }
+  </style>
+
   <!-- Toast Notification -->
   <div class="toast" id="toast"></div>
 
@@ -611,3 +747,4 @@
   <script src="admin.js"></script>
 </body>
 </html>
+
